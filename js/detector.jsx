@@ -118,5 +118,5 @@ function detect(str, wordList, replaceChar) {
     return str;
   }
   
-let result = detect("패드립놈의 새끼가", forbiddenword, "​");
+let result = detect("", forbiddenword, "​");
 console.log(result)
