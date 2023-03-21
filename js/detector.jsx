@@ -108,17 +108,15 @@ const forbiddenword = [
     "tlqkf"
 ]
 let separator = "​";
-let result = [];
 
-function detect(string) {
-for (let i = 0; i < forbiddenword.length; i++) {
-    let item = forbiddenword[i];
-    if (string.includes(item)) {
-      console.log(`${string} 에는 이게 포함되어있어요! ${item}`);
-      const regex = new RegExp(forbiddenword, "g")
-      string = string.replace(regex, "[redacted]")
+function detect(str, wordList, replaceChar) {
+    for (var i = 0; i < wordList.length; i++) {
+      var regex = new RegExp(wordList[i], "gi");
+      var replacement = wordList[i].split('').join(replaceChar);
+      str = str.replace(regex, replacement);
     }
+    return str;
   }
-console.log(string);
-}
-detect("ㅈㄹ을 해요 ㅅㅂ");
+  
+let result = detect("패드립놈의 새끼가", forbiddenword, "​");
+console.log(result)
