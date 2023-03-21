@@ -108,7 +108,6 @@ const forbiddenword = [
     "tlqkf"
 ]
 let separator = "​";
-
 let result = [];
 
 function detect(string) {
@@ -116,11 +115,10 @@ for (let i = 0; i < forbiddenword.length; i++) {
     let item = forbiddenword[i];
     if (string.includes(item)) {
       console.log(`${string} 에는 이게 포함되어있어요! ${item}`);
-      result.push(item);
+      const regex = new RegExp(forbiddenword, "g")
+      string = string.replace(regex, "[redacted]")
     }
   }
-  let finalString = result.join(separator);
-
-console.log(finalString);
+console.log(string);
 }
 detect("ㅈㄹ을 해요 ㅅㅂ");
