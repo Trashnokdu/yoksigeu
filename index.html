@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="shortcut icon" type="image/png" href="/images/yoksige.png">
+    <title>욕시그 검사기</title>
+</head>
+
+<body style="font-family: Nanum gothic;">
+    <div style="display: flex;">
+        <h1 style="margin-left: 10%;">욕시그 검사기</h1>
+        <h1 style="margin-left: 20%;">입력후 검사버튼을 눌러주세요!</h1>
+    </div>
+    <p></p>
+    <div>
+        <textarea id="str" style="height: 78vh; width: 100%; font-family: Nanum Gothic;" placeholder="여기 안에 검사할 택스트를 입력해주세요"></textarea>
+    </div>
+    <p></p>
+    <div style="display: flex;">
+        <button style="height: 10vh; width: 50%; font-family: Nanum gothic; font-size: 2.5vh;" onclick="reqtest()">검사</button>
+        <button style="height: 10vh; width: 50%; font-family: Nanum gothic; font-size: 2.5vh;" onclick="reset()">초기화</button>
+    </div>
+    <script>
+        let result;
+        const textarea = document.getElementById("str");
+        const textareaValue = textarea.value;
+        function getfor(str) {
+            return fetch("https://podoalforbidden-gtsni.run.goorm.site/api/get/detect?str=" + encodeURIComponent(str))
+                .then(response => response.json())
+                .then(data => textarea.value = data)
+                .catch(error => console.error(error));
+        }
+
+        function reset() {
+            textarea.value = "";
+        }
+
+        function reqtest() {
+            var getdata = getfor(textarea.value);
+        }
+    </script>
+</body>
+</html>
