@@ -24,7 +24,8 @@
     <p></p>
     <div style="display: flex;">
         <button style="height: 10vh; width: 50%; font-family: Nanum gothic; font-size: 2.5vh;" onclick="reqtest()">검사</button>
-        <button style="height: 10vh; width: 50%; font-family: Nanum gothic; font-size: 2.5vh;" onclick="reset()">초기화</button>
+        <button style="height: 10vh; width: 25%; font-family: Nanum gothic; font-size: 2.5vh;" onclick="copy()">복사</button>
+        <button style="height: 10vh; width: 25%; font-family: Nanum gothic; font-size: 2.5vh;" onclick="reset()">초기화</button>
     </div>
     <script>
         let result;
@@ -43,6 +44,10 @@
 
         function reqtest() {
             var getdata = getfor(textarea.value);
+        }
+        function copy(){
+            textarea.select();
+            document.execCommand('copy');
         }
     </script>
 </body>
