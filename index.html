@@ -13,9 +13,11 @@
 </head>
 
 <body style="font-family: Nanum gothic;">
-    <div style="display: flex;">
+    <div style="display: flex; background-color: gray;">
         <h1 style="margin-left: 10%;">욕시그 검사기</h1>
-        <h1 id="rank" style="margin-left: 20%;">로딩중...</h1>
+        <h1 id="rankru" style="margin-left: 10%; font-size: 2vh;">로딩중...</h1>
+        <h1 id="rankre" style="margin-left: 10%; font-size: 2vh;">로딩중...</h1>
+        <h1 id="rankws" style="margin-left: 10%; font-size: 2vh;">로딩중...</h1>
     </div>
     <p></p>
     <div>
@@ -30,7 +32,9 @@
     <script>
         let result;
         const textarea = document.getElementById("str");
-        const rank = document.getElementById("rank");
+        const rankru = document.getElementById("rankru");
+        const rankre = document.getElementById("rankre");
+        const rankws = document.getElementById("rankws");
         const apilink = "https://podoalforbidden-gtsni.run.goorm.site"
         const textareaValue = textarea.value;
         function getfor(str) {
@@ -39,10 +43,10 @@
                 .then(data => textarea.value = data)
                 .catch(error => console.error(error));
         }
-        function getchart(songn){
+        function getchart(songn, h1){
             return fetch(apilink + "/api/get/chart?songn=" + encodeURIComponent(songn))
                 .then(response => response.json())
-                .then(data => {rank.innerText=data;})
+                .then(data => {h1.innerText=data;})
                 .catch(error => console.error(error));
         }
         function reset() {
@@ -56,7 +60,9 @@
             textarea.select();
             document.execCommand('copy');
         }
-        getchart("잠깐 나올래");
+        getchart("잠깐 나올래", rankru);
+        getchart("리와인드", rankre);
+        getchart("겨울봄", rankws);
     </script>
 </body>
 </html>
