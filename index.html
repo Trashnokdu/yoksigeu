@@ -31,7 +31,7 @@
         let result;
         const textarea = document.getElementById("str");
         const rank = document.getElementById("rank");
-        const apilink = ""
+        const apilink = "localhost:3000"
         const textareaValue = textarea.value;
         function getfor(str) {
             return fetch(apilink + "/api/get/detect?str=" + encodeURIComponent(str))
