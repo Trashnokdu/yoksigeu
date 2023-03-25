@@ -15,7 +15,7 @@
 <body style="font-family: Nanum gothic;">
     <div style="display: flex;">
         <h1 style="margin-left: 10%;">욕시그 검사기</h1>
-        <h1 style="margin-left: 20%;">입력후 검사버튼을 눌러주세요!</h1>
+        <h1 id="rank" style="margin-left: 20%;">곧 무언가가 제공될지도?</h1>
     </div>
     <p></p>
     <div>
@@ -30,14 +30,21 @@
     <script>
         let result;
         const textarea = document.getElementById("str");
+        const rank = document.getElementById("rank");
+        const apilink = ""
         const textareaValue = textarea.value;
         function getfor(str) {
-            return fetch("https://podoalforbidden-gtsni.run.goorm.site/api/get/detect?str=" + encodeURIComponent(str))
+            return fetch(apilink + "/api/get/detect?str=" + encodeURIComponent(str))
                 .then(response => response.json())
                 .then(data => textarea.value = data)
                 .catch(error => console.error(error));
         }
-
+        function getchart(songn){
+            return fetch(apilink + "/api/get/detect?songn=")
+                .then(response => response.json())
+                .then(data => {rank.innerText=data;})
+                .catch(error => console.error(error));
+        }
         function reset() {
             textarea.value = "";
         }
