@@ -31,7 +31,7 @@
         let result;
         const textarea = document.getElementById("str");
         const rank = document.getElementById("rank");
-        const apilink = "localhost:3000"
+        const apilink = "https://podoalforbidden-gtsni.run.goorm.site"
         const textareaValue = textarea.value;
         function getfor(str) {
             return fetch(apilink + "/api/get/detect?str=" + encodeURIComponent(str))
@@ -40,7 +40,7 @@
                 .catch(error => console.error(error));
         }
         function getchart(songn){
-            return fetch(apilink + "/api/get/detect?songn=")
+            return fetch(apilink + "/api/get/chart?songn=" + encodeURIComponent(songn))
                 .then(response => response.json())
                 .then(data => {rank.innerText=data;})
                 .catch(error => console.error(error));
@@ -56,6 +56,7 @@
             textarea.select();
             document.execCommand('copy');
         }
+        getchart("");
     </script>
 </body>
 </html>
