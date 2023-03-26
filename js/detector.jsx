@@ -29,14 +29,14 @@ function render(){
 
 // -----------------------------------------------------------------------------------
 
-const Topbar = () => <div style={{display: "flex", height: "20vh"}}>
-<h1 style={{marginLeft: "10%", fontSize: "2vh"}}>욕시그 검사기</h1>
-<h1 id="rankru" style={{marginLeft: "10%", fontSize: "2vh", height: "20vh"}}>로딩중...</h1>
-<h1 id="rankre" style={{marginLeft: "10%", fontSize: "2vh", height: "20vh"}}>로딩중...</h1>
-<h1 id="rankws" style={{marginLeft: "10%", fontSize: "2vh", height: "20vh"}}>로딩중...</h1>
+const Topbar = () => <div style={{display: "flex", height: "15vh"}}>
+<h1 style={{marginLeft: "3%", fontSize: "1.9vh"}}>욕시그 검사기</h1>
+<h1 id="rankru" style={{marginLeft: "10%", fontSize: "2vh", height: "2vh"}}>로딩중...</h1>
+<h1 id="rankre" style={{marginLeft: "10%", fontSize: "2vh", height: "2vh"}}>로딩중...</h1>
+<h1 id="rankws" style={{marginLeft: "10%", fontSize: "2vh", height: "2vh"}}>로딩중...</h1>
 </div>
 const TextInput = () => <div>
-    <textarea id="str" style={{height: "50vh", width: "100%", fontFamily: "Nanum Gothic"}} placeholder="여기 안에 검사할 택스트를 입력해주세요"></textarea>
+    <textarea id="str" style={{height: "60vh", width: "100%", fontFamily: "Nanum Gothic", fontSize: "24pt"}} placeholder="여기 안에 검사할 택스트를 입력해주세요"></textarea>
 </div>
 var Buttons = () => <div style={{display: "flex"}}>
 <button style={{height: "10vh", width: "50%", fontFamily: "Nanum Gothic", fontSize: "2.5vh"}} onClick={reqtest}>검사</button>
