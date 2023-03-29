@@ -75,13 +75,13 @@ function reset() {
     textarea.value = "";
 }
 
-// function reqtest() {
-//     var getdata = getfor(textarea.value);
-// }
-// function copy(){
-//     textarea.select();
-//     document.execCommand('copy');
-// }
+function reqtest() {
+        var getdata = getfor(textarea.value);
+}
+function copy(){
+    textarea.select();
+    document.execCommand('copy');
+}
 // getchart("잠깐 나올래", rankru);
 // getchart("리와인드", rankre);
 // getchart("겨울봄", rankws);
