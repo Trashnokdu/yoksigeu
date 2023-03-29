@@ -29,7 +29,7 @@ function render(){
 
 // -----------------------------------------------------------------------------------
 
-const Topbar = () => <div style={{display: "flex", height: "15vh"}}>
+const Topbar = () => <div style={{display: "flex"}}>
 <h1 style={{marginLeft: "3%", fontSize: "1.9vh"}}>욕시그 검사기</h1>
 </div>
 const TextInput = () => <div>
