@@ -4,19 +4,19 @@ import { toast, ToastContainer } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  const textarea = document.getElementById("str");
+  const [text, setText] = useState("");
   const copy = () => {
-    window.navigator.clipboard.writeText(textarea.value)
+    window.navigator.clipboard.writeText(text)
     copynotify()
   }
   const donenotify = () => {
     toast("완료되었습니다! 하단의 복사버튼으로 복사하세요!")
   }
   const getfor = () => {
-    return fetch("http://localhost:3000" + "/api/get/detect?str=" + textarea.value)
+    return fetch("https://api.yoksigeu.xyz:3000" + "/api/get/detect?str=" + text)
     .then(response => response.json())
     .then(data => {
-      textarea.value = data
+      text = data
       donenotify()
     })
     .catch(error => console.error(error));
@@ -41,7 +41,13 @@ function App() {
                 </div>
             </div>
         </nav>
-        <textarea id="str" style={{height: "84vh", width: "100%", fontSize: "1rem", resize: "none", border: "none", outline: "none"}} placeholder="여기 안에 검사할 텍스트를 입력해주세요"></textarea>
+        <textarea 
+          id="str" 
+          style={{height: "84vh", width: "100%", fontSize: "1rem", resize: "none", border: "none", outline: "none"}} 
+          placeholder="여기 안에 검사할 텍스트를 입력해주세요"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
         <div>
         <button className='btn' id='detect' onClick={getfor} style={{height: "9.2vh", width: "50%", backgroundColor: '#0F0F0F', borderRadius: "0", color: "white", fontSize: "2em", borderRight: "solid gray"}}>검사하기</button>
         <button className='btn' id='copy' onClick={copy} style={{height: "9.2vh", width: "50%", backgroundColor: '#0F0F0F', borderRadius: "0", color: "white", fontSize: "2em"}}>복사하기</button>
