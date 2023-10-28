@@ -1,25 +1,52 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from 'react';
+import { toast, ToastContainer } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
+  const textarea = document.getElementById("str");
+  const copy = () => {
+    window.navigator.clipboard.writeText(textarea.value)
+    copynotify()
+  }
+  const donenotify = () => {
+    toast("완료되었습니다! 하단의 복사버튼으로 복사하세요!")
+  }
+  const getfor = () => {
+    return fetch("http://localhost:3000" + "/api/get/detect?str=" + textarea.value)
+    .then(response => response.json())
+    .then(data => {
+      textarea.value = data
+      donenotify()
+    })
+    .catch(error => console.error(error));
+  }
+  const copynotify = () => {
+    toast("복사되었습니다!")
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ToastContainer
+        position="top-center"
+        limit={1}
+        queueLimit={0}
+        closeButton={false}
+        autoClose={100}
+        hideProgressBar
+      />
+        <nav className="navbar navbar-expand-lg" style={{backgroundColor: "#161719"}}>
+            <div className="container">
+                  <a className="navbar-brand" href="#">욕시그 검사기</a>
+                  <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                </div>
+            </div>
+        </nav>
+        <textarea id="str" style={{height: "84vh", width: "100%", fontSize: "1rem", resize: "none", border: "none", outline: "none"}} placeholder="여기 안에 검사할 텍스트를 입력해주세요"></textarea>
+        <div>
+        <button className='btn' id='detect' onClick={getfor} style={{height: "9.2vh", width: "50%", backgroundColor: '#0F0F0F', borderRadius: "0", color: "white", fontSize: "2em", borderRight: "solid gray"}}>검사하기</button>
+        <button className='btn' id='copy' onClick={copy} style={{height: "9.2vh", width: "50%", backgroundColor: '#0F0F0F', borderRadius: "0", color: "white", fontSize: "2em"}}>복사하기</button>
+        </div>
     </div>
   );
 }
-
 export default App;
