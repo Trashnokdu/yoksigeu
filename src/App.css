@@ -3727,7 +3727,7 @@ textarea.form-control-lg {
 }
 
 .navbar {
-  height: 6vh;
+  height: 6%;
   --bs-navbar-padding-x: 0;
   --bs-navbar-color: rgba(0, 0, 0, 0.55);
   --bs-navbar-hover-color: rgba(0, 0, 0, 0.7);
@@ -10829,5 +10829,4 @@ textarea.form-control-lg {
   font-family: "Pretendard Variable";
   font-style: normal;
   font-weight: 600;
-  overflow: hidden;
 }
