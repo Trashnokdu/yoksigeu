@@ -13,7 +13,7 @@ function App() {
     toast("완료되었습니다! 하단의 복사버튼으로 복사하세요!")
   }
   const getfor = () => {
-    return fetch("http://yoksigeu.xyz:8443" + "/api/get/detect?str=" + encodeURIComponent(text))
+    return fetch("https://yoksigeu.xyz:8443" + "/api/get/detect?str=" + encodeURIComponent(text))
     .then(response => response.json())
     .then(data => {
       setText(data);
