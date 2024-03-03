@@ -13,7 +13,7 @@ function App() {
     toast("완료되었습니다! 하단의 복사버튼으로 복사하세요!")
   }
   const getfor = () => {
-    return fetch("https://yoksigeu.xyz:8443" + "/api/get/detect?str=" + encodeURIComponent(text))
+    return fetch("https://api.yoksigeu.xyz:8443" + "/api/get/detect?str=" + encodeURIComponent(text))
     .then(response => response.json())
     .then(data => {
       setText(data);
@@ -53,14 +53,6 @@ function App() {
         <button className='btn' id='copy' onClick={copy} style={{height: "9.2%", width: "50%", backgroundColor: '#0F0F0F', borderRadius: "0", color: "white", fontSize: "2em"}}>복사하기</button>
         </div>
         <div>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338001638680274"
-             crossOrigin="anonymous"></script>
-        <ins className="adsbygoogle"
-             style={{display: 'block'}}
-             data-ad-format="fluid"
-             data-ad-layout-key="-fb+5w+4e-db+86"
-             data-ad-client="ca-pub-8338001638680274"
-             data-ad-slot="9898474422"></ins>
         <script>
              (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
