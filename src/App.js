@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Analytics } from '@vercel/analytics/react';
 
 const forbiddenword = [
 	"강간",
@@ -250,6 +251,7 @@ function App() {
 					복사하기
 				</button>
 			</div>
+			<Analytics />
 		</div>
 	);
 }
